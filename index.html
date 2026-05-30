@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed Adel Ibrahim — Chemical Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a18; --ink2: #4a4a46; --ink3: #8a8a84;
+    --paper: #faf8f3; --warm: #f0ece2; --accent: #b5490e;
+    --accent-light: #f5ede7; --gold: #c8973a; --border: rgba(26,26,24,0.12);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 15px; line-height: 1.7; min-height: 100vh; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,248,243,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 2rem; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: 0.01em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink2); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 56px 4rem 5rem; position: relative; overflow: hidden; background: var(--paper); }
+  .hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.04; background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, var(--ink) 39px, var(--ink) 40px); pointer-events: none; }
+  .hero-tag { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+  .hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--accent); display: block; }
+  h1 { font-family: var(--serif); font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 400; line-height: 1.0; color: var(--ink); margin-bottom: 2.5rem; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-meta { display: flex; gap: 2rem; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 1.5rem; align-items: center; }
+  .meta-item { font-size: 13px; color: var(--ink2); display: flex; align-items: center; gap: 6px; }
+  .meta-item svg { width: 14px; height: 14px; opacity: 0.5; }
+  .hero-cta { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; padding: 10px 24px; border-radius: 2px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .hero-cta:hover { background: #9a3d0b; transform: translateY(-1px); }
+
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+  section:nth-child(even) { background: var(--warm); }
+  .section-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink3); margin-bottom: 3rem; display: flex; align-items: center; gap: 12px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; line-height: 1.15; margin-bottom: 1rem; color: var(--ink); }
+
+  /* OBJECTIVE */
+  .objective-text { font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 300; line-height: 1.8; color: var(--ink2); max-width: 760px; border-left: 3px solid var(--accent); padding-left: 2rem; }
+
+  /* EDUCATION */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+  .edu-card { background: var(--paper); border: 1px solid var(--border); border-radius: 2px; padding: 2rem; position: relative; overflow: hidden; }
+  .edu-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--gold); }
+  .edu-degree { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .edu-school { font-size: 13px; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; background: var(--accent-light); color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
+  .edu-card p { font-size: 14px; color: var(--ink2); line-height: 1.7; }
+
+  /* SKILLS */
+  .skills-categories { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+  .skill-cat h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; margin-bottom: 1rem; }
+  .skills-wrapper { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skill-pill { font-size: 13px; font-weight: 400; padding: 7px 18px; border: 1px solid var(--border); border-radius: 0; background: transparent; color: var(--ink); transition: all 0.2s; cursor: default; position: relative; overflow: hidden; }
+  .skill-pill::after { content: ''; position: absolute; inset: 0; background: var(--ink); transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; z-index: 0; }
+  .skill-pill:hover::after { transform: scaleX(1); }
+  .skill-pill:hover { color: var(--paper); border-color: var(--ink); }
+  .skill-pill span { position: relative; z-index: 1; }
+
+  /* TIMELINE */
+  .timeline { position: relative; margin-top: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 1px; background: var(--border); }
+  .tl-item { padding-left: 2.5rem; margin-bottom: 3rem; position: relative; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .tl-item.visible { opacity: 1; transform: translateY(0); }
+  .tl-dot { position: absolute; left: -5px; top: 8px; width: 11px; height: 11px; border-radius: 50%; background: var(--paper); border: 2px solid var(--accent); }
+  .tl-date { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.3rem; }
+  .tl-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .tl-body { font-size: 14px; color: var(--ink2); line-height: 1.7; }
+
+  /* ACHIEVEMENTS */
+  .achievements-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .ach-card { padding: 1.75rem; border: 1px solid var(--border); position: relative; background: var(--paper); transition: transform 0.2s, box-shadow 0.2s; }
+  .ach-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+  .ach-place { font-family: var(--serif); font-size: 3.5rem; font-weight: 400; line-height: 1; color: var(--accent); opacity: 0.15; position: absolute; top: 1rem; right: 1.25rem; font-style: italic; }
+  .ach-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.75rem; line-height: 1.35; }
+  .ach-body { font-size: 13px; color: var(--ink2); line-height: 1.65; }
+  .ach-tag { margin-top: 1rem; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); display: flex; align-items: center; gap: 6px; }
+  .ach-tag::before { content: ''; width: 16px; height: 1px; background: var(--gold); }
+
+  /* CERTIFICATIONS */
+  .cert-intro { font-size: 15px; color: var(--ink2); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.75; }
+  .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .cert-card {
+    border: 1px solid var(--border); padding: 1.5rem 1.5rem 1.25rem;
+    background: var(--paper); position: relative;
+    display: flex; flex-direction: column; gap: 0.6rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none; color: inherit;
+  }
+  .cert-card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
+  .cert-issuer-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.25rem; }
+  .cert-issuer-badge {
+    font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 3px 9px; border-radius: 20px;
+  }
+  .cert-issuer-badge.ibm { background: #dceeff; color: #005fa3; }
+  .cert-issuer-badge.uva { background: #f0eef9; color: #4a3a8a; }
+  .cert-issuer-badge.udemy { background: #f0e8f7; color: #7b3fa0; }
+  .cert-platform { font-size: 10px; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.08em; }
+  .cert-name { font-family: var(--serif); font-size: 1rem; font-weight: 600; line-height: 1.35; color: var(--ink); }
+  .cert-meta { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+  .cert-date { font-size: 11px; color: var(--ink3); }
+  .cert-verify { font-size: 11px; color: var(--accent); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 4px; }
+  .cert-verify:hover { text-decoration: underline; }
+  .cert-verify svg { width: 10px; height: 10px; }
+  .cert-accent-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .cert-accent-bar.ibm { background: #1d70b8; }
+  .cert-accent-bar.uva { background: #6b5cb0; }
+  .cert-accent-bar.udemy { background: #a435f0; }
+
+  /* FIELD TRIPS */
+  .cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+  .simple-card { padding: 1.5rem; border: 1px solid var(--border); background: var(--warm); border-radius: 2px; }
+  .simple-card h3 { font-family: var(--serif); font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .simple-card p { font-size: 13px; color: var(--ink2); line-height: 1.65; }
+
+  /* LANGUAGES */
+  .lang-list { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+  .lang-item { display: flex; flex-direction: column; gap: 4px; }
+  .lang-name { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; }
+  .lang-level { font-size: 12px; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: var(--paper); padding: 5rem 4rem; display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .footer-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.2; max-width: 400px; }
+  .footer-title em { font-style: italic; color: #d4895e; }
+  .contact-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .contact-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+  .contact-list a { color: var(--paper); text-decoration: none; opacity: 0.8; transition: opacity 0.2s; }
+  .contact-list a:hover { opacity: 1; }
+  .contact-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.4; width: 60px; }
+
+  /* ANIMATIONS */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 700px) {
+    section { padding: 4rem 1.5rem; } .hero { padding: 56px 1.5rem 3rem; }
+    nav { padding: 0 1.5rem; } .nav-links { display: none; } footer { padding: 3rem 1.5rem; }
+    .edu-grid, .achievements-grid, .cards-2, .skills-categories, .cert-grid { grid-template-columns: 1fr; }
+    .hero-meta { flex-direction: column; align-items: flex-start; gap: 0.75rem; } .hero-cta { margin-left: 0; }
+  }
+  @media (max-width: 960px) and (min-width: 701px) {
+    .cert-grid { grid-template-columns: 1fr 1fr; }
+    .achievements-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#hero">Mohamed Adel</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-tag">Chemical Engineer · Data & Process Analytics — Cairo, Egypt</div>
+  <h1>Mohamed<br><em>Adel</em> Ibrahim</h1>
+  <div class="hero-meta">
+    <span class="meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Giza, Egypt
+    </span>
+    <span class="meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>mo7amed0890@gmail.com
+    </span>
+    <span class="meta-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.05 3.4 2 2 0 0 1 3 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z"/></svg>01092016682
+    </span>
+    <a class="hero-cta" href="#contact">Get in Touch ↓</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">01 — About</div>
+  <h2 class="fade-in">A drive for sustainable<br>engineering & analytics</h2>
+  <p class="objective-text fade-in" style="transition-delay:0.1s">
+    Chemical Engineering graduate from Cairo University with a growing specialization in data analytics, process simulation, and financial analysis. Passionate about applying engineering rigor alongside modern data tools — Python, SQL, Power BI — to drive better decisions in process industries and beyond.
+  </p>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">02 — Education</div>
+  <h2 class="fade-in">Academic foundation</h2>
+  <div class="edu-grid">
+    <div class="edu-card fade-in" style="transition-delay:0.05s">
+      <div class="edu-degree">B.Sc. Chemical Engineering</div>
+      <div class="edu-school">Cairo University — Faculty of Engineering</div>
+      <span class="badge">Very Good with Honors · 83%</span>
+      <p>Comprehensive training in thermodynamics, fluid mechanics, mass transfer, process design, and simulation tools — providing both theoretical depth and practical problem-solving capability.</p>
+    </div>
+    <div class="edu-card fade-in" style="transition-delay:0.15s">
+      <div class="edu-degree">Graduation Project</div>
+      <div class="edu-school">Sustainable Aviation Fuel Production</div>
+      <span class="badge" style="background:#f5f0e0;color:#c8973a;">Excellent Grade</span>
+      <p>Designed Sustainable Aviation Fuel (SAF) from Used Cooking Oil (UCO). Led the detailed design of the Absorber column and was solely responsible for the heat integration strategy across the entire plant.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <div class="section-label">03 — Skills</div>
+  <h2 class="fade-in">Toolset & competencies</h2>
+  <div class="skills-categories">
+    <div class="skill-cat fade-in">
+      <h3>Technical</h3>
+      <div class="skills-wrapper">
+        <div class="skill-pill"><span>Aspen Plus</span></div>
+        <div class="skill-pill"><span>HYSYS</span></div>
+        <div class="skill-pill"><span>Python</span></div>
+        <div class="skill-pill"><span>SQL</span></div>
+        <div class="skill-pill"><span>Power BI</span></div>
+        <div class="skill-pill"><span>Excel & Cognos</span></div>
+        <div class="skill-pill"><span>Financial Analysis</span></div>
+        <div class="skill-pill"><span>Data Analytics</span></div>
+        <div class="skill-pill"><span>Risk Management</span></div>
+        <div class="skill-pill"><span>Statistics</span></div>
+      </div>
+    </div>
+    <div class="skill-cat fade-in" style="transition-delay:0.1s">
+      <h3>Interpersonal</h3>
+      <div class="skills-wrapper">
+        <div class="skill-pill"><span>Leadership</span></div>
+        <div class="skill-pill"><span>Teamwork</span></div>
+        <div class="skill-pill"><span>Problem Solving</span></div>
+        <div class="skill-pill"><span>Presentation</span></div>
+        <div class="skill-pill"><span>Communication</span></div>
+        <div class="skill-pill"><span>Digital Marketing</span></div>
+        <div class="skill-pill"><span>Public Relations</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE / TRAININGS -->
+<section id="experience">
+  <div class="section-label">04 — Training & Experience</div>
+  <h2 class="fade-in">Hands-on exposure</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Jul – Aug 2023</div>
+      <div class="tl-title">ENPPI — Process & Simulation Engineer (Intern)</div>
+      <div class="tl-body">Gained hands-on experience optimizing process engineering workflows and using advanced simulation tools to enhance design efficiency in an oil and gas environment.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Jul – Aug 2023</div>
+      <div class="tl-title">Egyptian Petrochemicals Holding Company (ECHEM)</div>
+      <div class="tl-body">Gained strategic insight into the fundamentals of Egypt's petrochemical industry and the management frameworks of the Egyptian Petroleum Ministry.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Aug 2022</div>
+      <div class="tl-title">Lafarge Cement Company</div>
+      <div class="tl-body">Exposed to cement manufacturing end-to-end: raw material preparation, kiln operations, and quality control. Observed production optimization and efficiency standards at industrial scale.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Feb 2021</div>
+      <div class="tl-title">Egyptian Sugar and Integrated Company</div>
+      <div class="tl-body">Learned about natural vinegar production from molasses and gained insight into sugar refinery operations — an introduction to fermentation and sugar processing chemistry.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label">05 — Certifications</div>
+  <h2 class="fade-in">Credentials in data &amp; analytics</h2>
+  <p class="cert-intro fade-in" style="transition-delay:0.05s">
+    A focused track of professional certifications spanning data analytics, Python programming, SQL, statistical foundations, financial analysis, and business intelligence — all verified through Coursera and Udemy.
+  </p>
+  <div class="cert-grid">
+
+    <a class="cert-card fade-in" href="https://coursera.org/verify/Y69COGZKQ5CD" target="_blank" style="transition-delay:0.05s">
+      <div class="cert-accent-bar ibm"></div>
+      <div class="cert-issuer-row">
+        <span class="cert-issuer-badge ibm">IBM</span>
+        <span class="cert-platform">Coursera</span>
+      </div>
+      <div class="cert-name">Python for Data Science, AI &amp; Development</div>
+      <div class="cert-meta">
+        <span class="cert-date">Dec 2025</span>
+        <span class="cert-verify">Verify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </div>
+    </a>
+
+    <a class="cert-card fade-in" href="https://coursera.org/verify/P7S5K3IJ5GKB" target="_blank" style="transition-delay:0.1s">
+      <div class="cert-accent-bar ibm"></div>
+      <div class="cert-issuer-row">
+        <span class="cert-issuer-badge ibm">IBM</span>
+        <span class="cert-platform">Coursera</span>
+      </div>
+      <div class="cert-name">Databases and SQL for Data Science with Python</div>
+      <div class="cert-meta">
+        <span class="cert-date">Dec 2025</span>
+        <span class="cert-verify">Verify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </div>
+    </a>
+
+    <a class="cert-card fade-in" href="https://coursera.org/verify/ZZHI2KKEYTDB" target="_blank" style="transition-delay:0.15s">
+      <div class="cert-accent-bar ibm"></div>
+      <div class="cert-issuer-row">
+        <span class="cert-issuer-badge ibm">IBM</span>
+        <span class="cert-platform">Coursera</span>
+      </div>
+      <div class="cert-name">Data Visualization and Dashboards with Excel and Cognos</div>
+      <div class="cert-meta">
+        <span class="cert-date">Dec 2025</span>
+        <span class="cert-verify">Verify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </div>
+    </a>
+
+    <a class="cert-card fade-in" href="https://coursera.org/verify/3S10QJO0RRCD" target="_blank" style="transition-delay:0.2s">
+      <div class="cert-accent-bar ibm"></div>
+      <div class="cert-issuer-row">
+        <span class="cert-issuer-badge ibm">IBM</span>
+        <span class="cert-platform">Coursera</span>
+      </div>
+      <div class="cert-name">Introduction to Data Analytics</div>
+      <div class="cert-meta">
+        <span class="cert-date">Dec 2025</span>
+        <span class="cert-verify">Verify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </div>
+    </a>
+
+    <a class="cert-card fade-in" href="https://coursera.org/verify/G3MNUPSDTX4G" target="_blank" style="transition-delay:0.25s">
+      <div class="cert-accent-bar uva"></div>
+      <div class="cert-issuer-row">
+        <span class="cert-issuer-badge uva">Univ. of Amsterdam</span>
+        <span class="cert-platform">Coursera</span>
+      </div>
+      <div class="cert-name">Basic Statistics</div>
+      <div class="cert-meta">
+        <span class="cert-date">Dec 2025</span>
+        <span class="cert-verify">Verify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </div>
+    </a>
+
+    <a class="cert-card fade-in" href="https://ude.my/UC-5c478274-d084-414c-a475-f09a80b4c693" target="_blank" style="transition-delay:0.3s">
+      <div class="cert-accent-bar udemy"></div>
+      <div class="cert-issuer-row">
+        <span class="cert-issuer-badge udemy">365 Careers</span>
+        <span class="cert-platform">Udemy</span>
+      </div>
+      <div class="cert-name">The Complete Financial Analyst Course 2026</div>
+      <div class="cert-meta">
+        <span class="cert-date">Mar 2026 · 22.5 hrs</span>
+        <span class="cert-verify">Verify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-label">06 — Achievements</div>
+  <h2 class="fade-in">Competitions & recognition</h2>
+  <div class="achievements-grid">
+    <div class="ach-card fade-in">
+      <div class="ach-place">2nd</div>
+      <div class="ach-title">_VOIS Vantage Case Study — Egypt Track 2022</div>
+      <div class="ach-body">Contributed to a strategic talent acquisition plan to strengthen _VOIS employer branding and attract top talent. Secured 2nd place.</div>
+      <div class="ach-tag">2nd Place</div>
+    </div>
+    <div class="ach-card fade-in" style="transition-delay:0.1s">
+      <div class="ach-place">2nd</div>
+      <div class="ach-title">P&G Online Sales Case Study Competition 2022</div>
+      <div class="ach-body">Led as Team Leader — conducted market analysis and built a sales & marketing strategy for a P&G product in the Egyptian market. Finished 2nd place.</div>
+      <div class="ach-tag">Team Leader · 2nd Place</div>
+    </div>
+    <div class="ach-card fade-in" style="transition-delay:0.2s">
+      <div class="ach-place">1st</div>
+      <div class="ach-title">STP Project Day — Digital Marketing</div>
+      <div class="ach-body">Led a comprehensive social media marketing campaign for a security company across multiple platforms, competing against several freelancing teams. Won the top prize.</div>
+      <div class="ach-tag">1st Place</div>
+    </div>
+  </div>
+</section>
+
+<!-- FIELD TRIPS & ACTIVITIES -->
+<section>
+  <div class="section-label">07 — Field Visits & Activities</div>
+  <h2 class="fade-in">Industry exposure</h2>
+  <div class="cards-2">
+    <div class="simple-card fade-in"><h3>Unilever Plant — Guided Visit</h3><p>Observed the saponification process, powder detergent production, and the high level of automation in an FMCG manufacturing facility.</p></div>
+    <div class="simple-card fade-in" style="transition-delay:0.1s"><h3>Egyptian Refining Company (ERC)</h3><p>Observed refining processes and advanced equipment. Gained insight into the production of cleaner fuels and the role of refinery operations in the energy sector.</p></div>
+    <div class="simple-card fade-in" style="transition-delay:0.15s"><h3>STP'23 — Public Relations Member</h3><p>Contributed to PR and venue selection for events such as Machathon 4.0 and Project Day. Developed event coordination and stakeholder communication skills.</p></div>
+    <div class="simple-card fade-in" style="transition-delay:0.2s"><h3>STP Digital Marketing Workshop</h3><p>Learned digital marketing principles and created a real social media campaign for a startup — bridging engineering problem-solving with communication strategy.</p></div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section>
+  <div class="section-label">08 — Languages</div>
+  <h2 class="fade-in">Communication</h2>
+  <div class="lang-list">
+    <div class="lang-item fade-in"><div class="lang-name">Arabic</div><div class="lang-level">Mother tongue</div></div>
+    <div class="lang-item fade-in" style="transition-delay:0.1s"><div class="lang-name">English</div><div class="lang-level">Proficient — Read · Write · Speak</div></div>
+  </div>
+</section>
+
+<!-- FOOTER / CONTACT -->
+<footer id="contact">
+  <div class="footer-title">Let's build something<br><em>great</em> together.</div>
+  <ul class="contact-list">
+    <li><span class="contact-label">Email</span><a href="mailto:mo7amed0890@gmail.com">mo7amed0890@gmail.com</a></li>
+    <li><span class="contact-label">Phone</span><a href="tel:+201092016682">+20 109 201 6682</a></li>
+    <li><span class="contact-label">Location</span><span style="opacity:0.7">Giza, Egypt</span></li>
+    <li><span class="contact-label">LinkedIn</span><a href="https://www.linkedin.com/in/mo7amed-adel" target="_blank">Mohamed Adel ↗</a></li>
+  </ul>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in, .tl-item').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
