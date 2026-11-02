@@ -1,443 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohamed Adel Ibrahim — Chemical Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohamed Adel Ibrahim | Chemical &amp; Process Engineer</title>
+<meta name="description" content="Portfolio of Mohamed Adel Ibrahim, Chemical Engineering graduate focused on process optimization, supply chain and data analytics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --ink: #1a1a18; --ink2: #4a4a46; --ink3: #8a8a84;
-    --paper: #faf8f3; --warm: #f0ece2; --accent: #b5490e;
-    --accent-light: #f5ede7; --gold: #c8973a; --border: rgba(26,26,24,0.12);
-    --serif: 'Playfair Display', Georgia, serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 15px; line-height: 1.7; min-height: 100vh; }
-
-  /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,248,243,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 2rem; height: 56px; display: flex; align-items: center; justify-content: space-between; }
-  .nav-logo { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: 0.01em; }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink2); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--accent); }
-
-  /* HERO */
-  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 56px 4rem 5rem; position: relative; overflow: hidden; background: var(--paper); }
-  .hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.04; background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, var(--ink) 39px, var(--ink) 40px); pointer-events: none; }
-  .hero-tag { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
-  .hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--accent); display: block; }
-  h1 { font-family: var(--serif); font-size: clamp(3.5rem, 8vw, 7rem); font-weight: 400; line-height: 1.0; color: var(--ink); margin-bottom: 2.5rem; }
-  h1 em { font-style: italic; color: var(--accent); }
-  .hero-meta { display: flex; gap: 2rem; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 1.5rem; align-items: center; }
-  .meta-item { font-size: 13px; color: var(--ink2); display: flex; align-items: center; gap: 6px; }
-  .meta-item svg { width: 14px; height: 14px; opacity: 0.5; }
-  .hero-cta { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; padding: 10px 24px; border-radius: 2px; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; transition: background 0.2s, transform 0.15s; }
-  .hero-cta:hover { background: #9a3d0b; transform: translateY(-1px); }
-
-  /* SECTIONS */
-  section { padding: 6rem 4rem; }
-  section:nth-child(even) { background: var(--warm); }
-  .section-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink3); margin-bottom: 3rem; display: flex; align-items: center; gap: 12px; }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; line-height: 1.15; margin-bottom: 1rem; color: var(--ink); }
-
-  /* OBJECTIVE */
-  .objective-text { font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 300; line-height: 1.8; color: var(--ink2); max-width: 760px; border-left: 3px solid var(--accent); padding-left: 2rem; }
-
-  /* EDUCATION */
-  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
-  .edu-card { background: var(--paper); border: 1px solid var(--border); border-radius: 2px; padding: 2rem; position: relative; overflow: hidden; }
-  .edu-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--gold); }
-  .edu-degree { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.4rem; }
-  .edu-school { font-size: 13px; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
-  .badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; background: var(--accent-light); color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
-  .edu-card p { font-size: 14px; color: var(--ink2); line-height: 1.7; }
-
-  /* SKILLS */
-  .skills-categories { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
-  .skill-cat h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; margin-bottom: 1rem; }
-  .skills-wrapper { display: flex; flex-wrap: wrap; gap: 10px; }
-  .skill-pill { font-size: 13px; font-weight: 400; padding: 7px 18px; border: 1px solid var(--border); border-radius: 0; background: transparent; color: var(--ink); transition: all 0.2s; cursor: default; position: relative; overflow: hidden; }
-  .skill-pill::after { content: ''; position: absolute; inset: 0; background: var(--ink); transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; z-index: 0; }
-  .skill-pill:hover::after { transform: scaleX(1); }
-  .skill-pill:hover { color: var(--paper); border-color: var(--ink); }
-  .skill-pill span { position: relative; z-index: 1; }
-
-  /* TIMELINE */
-  .timeline { position: relative; margin-top: 2rem; }
-  .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 1px; background: var(--border); }
-  .tl-item { padding-left: 2.5rem; margin-bottom: 3rem; position: relative; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-  .tl-item.visible { opacity: 1; transform: translateY(0); }
-  .tl-dot { position: absolute; left: -5px; top: 8px; width: 11px; height: 11px; border-radius: 50%; background: var(--paper); border: 2px solid var(--accent); }
-  .tl-date { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.3rem; }
-  .tl-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.25rem; }
-  .tl-body { font-size: 14px; color: var(--ink2); line-height: 1.7; }
-
-  /* ACHIEVEMENTS */
-  .achievements-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
-  .ach-card { padding: 1.75rem; border: 1px solid var(--border); position: relative; background: var(--paper); transition: transform 0.2s, box-shadow 0.2s; }
-  .ach-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
-  .ach-place { font-family: var(--serif); font-size: 3.5rem; font-weight: 400; line-height: 1; color: var(--accent); opacity: 0.15; position: absolute; top: 1rem; right: 1.25rem; font-style: italic; }
-  .ach-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.75rem; line-height: 1.35; }
-  .ach-body { font-size: 13px; color: var(--ink2); line-height: 1.65; }
-  .ach-tag { margin-top: 1rem; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); display: flex; align-items: center; gap: 6px; }
-  .ach-tag::before { content: ''; width: 16px; height: 1px; background: var(--gold); }
-
-  /* CERTIFICATIONS */
-  .cert-intro { font-size: 15px; color: var(--ink2); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.75; }
-  .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-  .cert-card {
-    border: 1px solid var(--border); padding: 1.5rem 1.5rem 1.25rem;
-    background: var(--paper); position: relative;
-    display: flex; flex-direction: column; gap: 0.6rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-decoration: none; color: inherit;
-  }
-  .cert-card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
-  .cert-issuer-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.25rem; }
-  .cert-issuer-badge {
-    font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em;
-    padding: 3px 9px; border-radius: 20px;
-  }
-  .cert-issuer-badge.ibm { background: #dceeff; color: #005fa3; }
-  .cert-issuer-badge.uva { background: #f0eef9; color: #4a3a8a; }
-  .cert-issuer-badge.udemy { background: #f0e8f7; color: #7b3fa0; }
-  .cert-platform { font-size: 10px; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.08em; }
-  .cert-name { font-family: var(--serif); font-size: 1rem; font-weight: 600; line-height: 1.35; color: var(--ink); }
-  .cert-meta { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border); }
-  .cert-date { font-size: 11px; color: var(--ink3); }
-  .cert-verify { font-size: 11px; color: var(--accent); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 4px; }
-  .cert-verify:hover { text-decoration: underline; }
-  .cert-verify svg { width: 10px; height: 10px; }
-  .cert-accent-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
-  .cert-accent-bar.ibm { background: #1d70b8; }
-  .cert-accent-bar.uva { background: #6b5cb0; }
-  .cert-accent-bar.udemy { background: #a435f0; }
-
-  /* FIELD TRIPS */
-  .cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
-  .simple-card { padding: 1.5rem; border: 1px solid var(--border); background: var(--warm); border-radius: 2px; }
-  .simple-card h3 { font-family: var(--serif); font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
-  .simple-card p { font-size: 13px; color: var(--ink2); line-height: 1.65; }
-
-  /* LANGUAGES */
-  .lang-list { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
-  .lang-item { display: flex; flex-direction: column; gap: 4px; }
-  .lang-name { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; }
-  .lang-level { font-size: 12px; color: var(--ink3); text-transform: uppercase; letter-spacing: 0.1em; }
-
-  /* FOOTER */
-  footer { background: var(--ink); color: var(--paper); padding: 5rem 4rem; display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-  .footer-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.2; max-width: 400px; }
-  .footer-title em { font-style: italic; color: #d4895e; }
-  .contact-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
-  .contact-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; }
-  .contact-list a { color: var(--paper); text-decoration: none; opacity: 0.8; transition: opacity 0.2s; }
-  .contact-list a:hover { opacity: 1; }
-  .contact-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.4; width: 60px; }
-
-  /* ANIMATIONS */
-  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .fade-in.visible { opacity: 1; transform: none; }
-
-  @media (max-width: 700px) {
-    section { padding: 4rem 1.5rem; } .hero { padding: 56px 1.5rem 3rem; }
-    nav { padding: 0 1.5rem; } .nav-links { display: none; } footer { padding: 3rem 1.5rem; }
-    .edu-grid, .achievements-grid, .cards-2, .skills-categories, .cert-grid { grid-template-columns: 1fr; }
-    .hero-meta { flex-direction: column; align-items: flex-start; gap: 0.75rem; } .hero-cta { margin-left: 0; }
-  }
-  @media (max-width: 960px) and (min-width: 701px) {
-    .cert-grid { grid-template-columns: 1fr 1fr; }
-    .achievements-grid { grid-template-columns: 1fr 1fr; }
-  }
+:root{--bg:#02040b;--bg2:#050b1f;--navy:#0a1a4a;--blue:#1d4ed8;--sky:#38bdf8;--ink:#e6edf9;--mut:#8ea0c4;--line:#14234d;--card:rgba(10,26,74,.38);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+h1,h2,h3{font-family:"Space Grotesk",Inter,system-ui,sans-serif;line-height:1.15;margin:0}
+a{color:var(--sky);text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;background:linear-gradient(90deg,var(--blue),var(--sky));z-index:70}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(2,4,11,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{font:700 18px "Space Grotesk",sans-serif;color:var(--ink)}.logo b{color:var(--sky)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+nav ul a{color:var(--mut);font-size:14px;font-weight:500}nav ul a:hover{color:var(--ink)}
+section{padding:84px 0;position:relative}
+.eyebrow{font:600 12px Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--sky);margin-bottom:10px}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:34px}
+#hero{min-height:92vh;display:flex;align-items:center;padding:60px 0;background:radial-gradient(900px 500px at 80% 10%,rgba(29,78,216,.28),transparent 60%),radial-gradient(700px 500px at 0% 100%,rgba(10,26,74,.7),transparent 60%),var(--bg);overflow:hidden}
+#net{position:absolute;inset:0;width:100%;height:100%}
+.hero-in{position:relative;z-index:2}
+h1{font-size:clamp(40px,8vw,84px);letter-spacing:-.02em;background:linear-gradient(100deg,#fff 10%,var(--sky) 70%,#60a5fa);-webkit-background-clip:text;background-clip:text;color:transparent;margin:6px 0 16px}
+.lead{max-width:640px;color:#b9c6e4;font-size:clamp(16px,2vw,19px)}
+.typed{margin:18px 0 28px;font:500 17px "Space Grotesk",sans-serif;color:var(--mut)}
+.typed span{color:var(--sky);border-right:2px solid var(--sky);padding-right:3px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:600;font-size:15px;border:1px solid var(--line);cursor:pointer;font-family:inherit;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.pri{background:linear-gradient(135deg,var(--blue),#0b3aa8);color:#fff;border-color:transparent;box-shadow:0 8px 30px rgba(29,78,216,.4)}
+.btn.sec{background:rgba(10,26,74,.5);color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:46px;max-width:640px}
+.stat{padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.stat b{display:block;font:700 34px "Space Grotesk",sans-serif;color:#fff}
+.stat span{font-size:13px;color:var(--mut)}
+.card{position:relative;border:1px solid var(--line);border-radius:18px;padding:26px;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),rgba(56,189,248,.12),transparent 45%),var(--card)}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:22px}
+.about p{margin:0 0 14px;color:#c3cfe8}
+dl{margin:0;display:grid;gap:14px}dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}dd{margin:2px 0 0;font-weight:500}
+.rail{display:flex;gap:0;position:relative;margin-bottom:22px}
+.rail::before{content:"";position:absolute;left:0;right:0;top:19px;height:4px;border-radius:4px;background:repeating-linear-gradient(90deg,var(--blue) 0 14px,transparent 14px 24px);background-size:24px 4px;animation:flow 1.2s linear infinite;opacity:.55}
+@keyframes flow{to{background-position:24px 0}}
+.node{flex:1;background:none;border:0;color:var(--mut);font:500 13px Inter,sans-serif;cursor:pointer;padding:0 6px;text-align:center}
+.node i{display:block;width:42px;height:42px;margin:0 auto 10px;border-radius:50%;background:var(--bg2);border:2px solid var(--line);position:relative;z-index:1;transition:.3s}
+.node i::after{content:attr(data-n);position:absolute;inset:0;display:grid;place-items:center;font:700 13px "Space Grotesk",sans-serif;color:var(--mut)}
+.node.on{color:#fff}.node.on i{border-color:var(--sky);box-shadow:0 0 0 6px rgba(56,189,248,.15),0 0 28px rgba(56,189,248,.5)}.node.on i::after{color:var(--sky)}
+.node small{display:block;color:#5b6d94;font-size:11px}
+#pn h3{font-size:24px}#pn .meta{color:var(--sky);font-size:14px;margin:6px 0 14px}
+#pn ul{margin:0;padding-left:20px;color:#c3cfe8}#pn li{margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{background:rgba(10,26,74,.5);border:1px solid var(--line);color:var(--mut);border-radius:999px;padding:7px 16px;font:500 13px Inter,sans-serif;cursor:pointer}
+.chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tag{padding:9px 16px;border-radius:10px;background:var(--card);border:1px solid var(--line);font-size:14px;transition:.3s}
+.tag.dim{opacity:.18;transform:scale(.96)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ach h3{font-size:19px;margin:10px 0 6px}.ach p{margin:0;color:#b4c2e0;font-size:15px}
+.badge{display:inline-block;font:700 12px Inter,sans-serif;letter-spacing:.08em;color:#02040b;background:var(--sky);border-radius:6px;padding:3px 9px}
+.cert{display:grid;gap:12px;margin-top:26px}
+.cert div{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.cert span{color:var(--mut);font-size:14px}
+#contact{background:radial-gradient(800px 360px at 50% 100%,rgba(29,78,216,.3),transparent 70%)}
+.cta{text-align:center;padding:48px 24px}.cta h2{margin-bottom:12px}.cta p{color:#b4c2e0;max-width:520px;margin:0 auto 26px}
+.cta .btns{justify-content:center}
+footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:#5b6d94;font-size:13px}
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}.js .rv.on{opacity:1;transform:none}
+@media(max-width:760px){nav ul{display:none}.about,.grid3{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr 1fr;gap:8px}.stat b{font-size:26px}.stat{padding:12px}
+.rail{flex-direction:column;gap:6px;padding-left:4px}.rail::before{left:23px;right:auto;top:0;bottom:0;width:4px;height:auto;background:repeating-linear-gradient(180deg,var(--blue) 0 14px,transparent 14px 24px);animation:none}
+.node{display:flex;align-items:center;gap:14px;text-align:left;padding:4px 0}.node i{margin:0;flex:none}section{padding:64px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<div id="bar"></div>
+<header><div class="wrap"><nav>
+<a class="logo" href="#hero">M<b>.</b>Adel</a>
+<ul><li><a href="#about">About</a></li><li><a href="#journey">Journey</a></li><li><a href="#skills">Skills</a></li><li><a href="#wins">Achievements</a></li><li><a href="#contact">Contact</a></li></ul>
+</nav></div></header>
 
-<nav>
-  <a class="nav-logo" href="#hero">Mohamed Adel</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#certifications">Certifications</a></li>
-    <li><a href="#achievements">Achievements</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<section id="hero"><canvas id="net" aria-hidden="true"></canvas>
+<div class="wrap hero-in">
+<div class="eyebrow">Chemical &amp; Process Engineer</div>
+<h1>Mohamed Adel Ibrahim</h1>
+<p class="lead">Chemical Engineering graduate bridging engineering principles with data-driven decision-making, from process simulation and heat integration to supply chain analytics.</p>
+<div class="typed">Focus: <span id="typed"></span></div>
+<div class="btns"><a class="btn pri" href="#journey">Explore my journey &rarr;</a><a class="btn sec" href="#contact">Get in touch</a></div>
+<div class="stats">
+<div class="stat"><b><i data-to="83">0</i>%</b><span>Very Good, with Honors</span></div>
+<div class="stat"><b><i data-to="3">0</i></b><span>Industry internships</span></div>
+<div class="stat"><b><i data-to="3">0</i></b><span>Competition podiums</span></div>
+</div></div></section>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-tag">Chemical Engineer · Data & Process Analytics — Cairo, Egypt</div>
-  <h1>Mohamed<br><em>Adel</em> Ibrahim</h1>
-  <div class="hero-meta">
-    <span class="meta-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Giza, Egypt
-    </span>
-    <span class="meta-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>mo7amed0890@gmail.com
-    </span>
-    <span class="meta-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.05 3.4 2 2 0 0 1 3 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z"/></svg>01092016682
-    </span>
-    <a class="hero-cta" href="#contact">Get in Touch ↓</a>
-  </div>
-</section>
+<section id="about"><div class="wrap">
+<div class="eyebrow rv">About</div><h2 class="rv">Engineering rigor, analytical edge</h2>
+<div class="about">
+<div class="card rv">
+<p>I am a Chemical Engineering graduate from Cairo University who enjoys turning complex operations into clear, measurable improvements. My graduation project, rated Excellent, designed the absorber column and full-plant heat integration for sustainable aviation fuel produced from used cooking oil.</p>
+<p>I pair process engineering tools with data skills (SQL, Power BI, Python) and Lean Six Sigma methods to find root causes, streamline workflows and support supply chain decisions. I also enjoy leading teams: I was team leader in P&amp;G’s Online Sales Case Study Competition and we placed 2nd.</p>
+<p style="margin:0">Open to roles in manufacturing, FMCG, energy and supply chain.</p>
+</div>
+<div class="card rv"><dl>
+<div><dt>Location</dt><dd>Giza, Egypt</dd></div>
+<div><dt>Education</dt><dd>B.Sc. Chemical Engineering, Cairo University (2019 to 2024)</dd></div>
+<div><dt>Languages</dt><dd>Arabic (native), English (C1)</dd></div>
+<div><dt>Certified</dt><dd>Lean Six Sigma Green Belt, 2026</dd></div>
+</dl></div>
+</div></div></section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-label">01 — About</div>
-  <h2 class="fade-in">A drive for sustainable<br>engineering & analytics</h2>
-  <p class="objective-text fade-in" style="transition-delay:0.1s">
-    Chemical Engineering graduate from Cairo University with a growing specialization in data analytics, process simulation, and financial analysis. Passionate about applying engineering rigor alongside modern data tools — Python, SQL, Power BI — to drive better decisions in process industries and beyond.
-  </p>
-</section>
+<section id="journey"><div class="wrap">
+<div class="eyebrow rv">Journey</div><h2 class="rv">From classroom to the plant floor</h2>
+<div class="rail rv" id="rail" role="tablist" aria-label="Career journey"></div>
+<div class="card" id="pn" aria-live="polite"></div>
+</div></section>
 
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-label">02 — Education</div>
-  <h2 class="fade-in">Academic foundation</h2>
-  <div class="edu-grid">
-    <div class="edu-card fade-in" style="transition-delay:0.05s">
-      <div class="edu-degree">B.Sc. Chemical Engineering</div>
-      <div class="edu-school">Cairo University — Faculty of Engineering</div>
-      <span class="badge">Very Good with Honors · 83%</span>
-      <p>Comprehensive training in thermodynamics, fluid mechanics, mass transfer, process design, and simulation tools — providing both theoretical depth and practical problem-solving capability.</p>
-    </div>
-    <div class="edu-card fade-in" style="transition-delay:0.15s">
-      <div class="edu-degree">Graduation Project</div>
-      <div class="edu-school">Sustainable Aviation Fuel Production</div>
-      <span class="badge" style="background:#f5f0e0;color:#c8973a;">Excellent Grade</span>
-      <p>Designed Sustainable Aviation Fuel (SAF) from Used Cooking Oil (UCO). Led the detailed design of the Absorber column and was solely responsible for the heat integration strategy across the entire plant.</p>
-    </div>
-  </div>
-</section>
+<section id="skills"><div class="wrap">
+<div class="eyebrow rv">Skills</div><h2 class="rv">Toolbox</h2>
+<div class="chips rv" id="chips"></div>
+<div class="tags rv" id="tags"></div>
+</div></section>
 
-<!-- SKILLS -->
-<section>
-  <div class="section-label">03 — Skills</div>
-  <h2 class="fade-in">Toolset & competencies</h2>
-  <div class="skills-categories">
-    <div class="skill-cat fade-in">
-      <h3>Technical</h3>
-      <div class="skills-wrapper">
-        <div class="skill-pill"><span>Aspen Plus</span></div>
-        <div class="skill-pill"><span>HYSYS</span></div>
-        <div class="skill-pill"><span>Python</span></div>
-        <div class="skill-pill"><span>SQL</span></div>
-        <div class="skill-pill"><span>Power BI</span></div>
-        <div class="skill-pill"><span>Excel & Cognos</span></div>
-        <div class="skill-pill"><span>Financial Analysis</span></div>
-        <div class="skill-pill"><span>Data Analytics</span></div>
-        <div class="skill-pill"><span>Risk Management</span></div>
-        <div class="skill-pill"><span>Statistics</span></div>
-      </div>
-    </div>
-    <div class="skill-cat fade-in" style="transition-delay:0.1s">
-      <h3>Interpersonal</h3>
-      <div class="skills-wrapper">
-        <div class="skill-pill"><span>Leadership</span></div>
-        <div class="skill-pill"><span>Teamwork</span></div>
-        <div class="skill-pill"><span>Problem Solving</span></div>
-        <div class="skill-pill"><span>Presentation</span></div>
-        <div class="skill-pill"><span>Communication</span></div>
-        <div class="skill-pill"><span>Digital Marketing</span></div>
-        <div class="skill-pill"><span>Public Relations</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="wins"><div class="wrap">
+<div class="eyebrow rv">Achievements</div><h2 class="rv">Where I competed and led</h2>
+<div class="grid3">
+<div class="card ach rv"><span class="badge">2ND PLACE</span><h3>_VOIS Vantage Case Study, Egypt Track</h3><p>2022. Contributed to a strategic talent acquisition plan aimed at strengthening _VOIS employer branding and attracting top talent.</p></div>
+<div class="card ach rv"><span class="badge">2ND PLACE · TEAM LEADER</span><h3>P&amp;G Online Sales Case Study</h3><p>2022. Led the team through market analysis and a sales and marketing strategy for a P&amp;G product in the Egyptian market.</p></div>
+<div class="card ach rv"><span class="badge">TOP PRIZE</span><h3>STP Freelancing Project Day</h3><p>2023. As digital marketer, led the design of a multi-platform social media campaign for a security systems company.</p></div>
+</div>
+<div class="cert rv">
+<div><b>Lean Six Sigma Green Belt</b><span>Packt, 2026</span></div>
+<div><b>Supply Chain Excellence</b><span>Rutgers via Coursera</span></div>
+<div><b>Data Science &amp; Analytics (Python, SQL, Statistics)</b><span>IBM / University of Amsterdam</span></div>
+</div></div></section>
 
-<!-- EXPERIENCE / TRAININGS -->
-<section id="experience">
-  <div class="section-label">04 — Training & Experience</div>
-  <h2 class="fade-in">Hands-on exposure</h2>
-  <div class="timeline">
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">Jul – Aug 2023</div>
-      <div class="tl-title">ENPPI — Process & Simulation Engineer (Intern)</div>
-      <div class="tl-body">Gained hands-on experience optimizing process engineering workflows and using advanced simulation tools to enhance design efficiency in an oil and gas environment.</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">Jul – Aug 2023</div>
-      <div class="tl-title">Egyptian Petrochemicals Holding Company (ECHEM)</div>
-      <div class="tl-body">Gained strategic insight into the fundamentals of Egypt's petrochemical industry and the management frameworks of the Egyptian Petroleum Ministry.</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">Aug 2022</div>
-      <div class="tl-title">Lafarge Cement Company</div>
-      <div class="tl-body">Exposed to cement manufacturing end-to-end: raw material preparation, kiln operations, and quality control. Observed production optimization and efficiency standards at industrial scale.</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">Feb 2021</div>
-      <div class="tl-title">Egyptian Sugar and Integrated Company</div>
-      <div class="tl-body">Learned about natural vinegar production from molasses and gained insight into sugar refinery operations — an introduction to fermentation and sugar processing chemistry.</div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="section-label">05 — Certifications</div>
-  <h2 class="fade-in">Credentials in data &amp; analytics</h2>
-  <p class="cert-intro fade-in" style="transition-delay:0.05s">
-    A focused track of professional certifications spanning data analytics, Python programming, SQL, statistical foundations, financial analysis, and business intelligence — all verified through Coursera and Udemy.
-  </p>
-  <div class="cert-grid">
-
-    <a class="cert-card fade-in" href="https://coursera.org/verify/Y69COGZKQ5CD" target="_blank" style="transition-delay:0.05s">
-      <div class="cert-accent-bar ibm"></div>
-      <div class="cert-issuer-row">
-        <span class="cert-issuer-badge ibm">IBM</span>
-        <span class="cert-platform">Coursera</span>
-      </div>
-      <div class="cert-name">Python for Data Science, AI &amp; Development</div>
-      <div class="cert-meta">
-        <span class="cert-date">Dec 2025</span>
-        <span class="cert-verify">Verify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-      </div>
-    </a>
-
-    <a class="cert-card fade-in" href="https://coursera.org/verify/P7S5K3IJ5GKB" target="_blank" style="transition-delay:0.1s">
-      <div class="cert-accent-bar ibm"></div>
-      <div class="cert-issuer-row">
-        <span class="cert-issuer-badge ibm">IBM</span>
-        <span class="cert-platform">Coursera</span>
-      </div>
-      <div class="cert-name">Databases and SQL for Data Science with Python</div>
-      <div class="cert-meta">
-        <span class="cert-date">Dec 2025</span>
-        <span class="cert-verify">Verify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-      </div>
-    </a>
-
-    <a class="cert-card fade-in" href="https://coursera.org/verify/ZZHI2KKEYTDB" target="_blank" style="transition-delay:0.15s">
-      <div class="cert-accent-bar ibm"></div>
-      <div class="cert-issuer-row">
-        <span class="cert-issuer-badge ibm">IBM</span>
-        <span class="cert-platform">Coursera</span>
-      </div>
-      <div class="cert-name">Data Visualization and Dashboards with Excel and Cognos</div>
-      <div class="cert-meta">
-        <span class="cert-date">Dec 2025</span>
-        <span class="cert-verify">Verify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-      </div>
-    </a>
-
-    <a class="cert-card fade-in" href="https://coursera.org/verify/3S10QJO0RRCD" target="_blank" style="transition-delay:0.2s">
-      <div class="cert-accent-bar ibm"></div>
-      <div class="cert-issuer-row">
-        <span class="cert-issuer-badge ibm">IBM</span>
-        <span class="cert-platform">Coursera</span>
-      </div>
-      <div class="cert-name">Introduction to Data Analytics</div>
-      <div class="cert-meta">
-        <span class="cert-date">Dec 2025</span>
-        <span class="cert-verify">Verify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-      </div>
-    </a>
-
-    <a class="cert-card fade-in" href="https://coursera.org/verify/G3MNUPSDTX4G" target="_blank" style="transition-delay:0.25s">
-      <div class="cert-accent-bar uva"></div>
-      <div class="cert-issuer-row">
-        <span class="cert-issuer-badge uva">Univ. of Amsterdam</span>
-        <span class="cert-platform">Coursera</span>
-      </div>
-      <div class="cert-name">Basic Statistics</div>
-      <div class="cert-meta">
-        <span class="cert-date">Dec 2025</span>
-        <span class="cert-verify">Verify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-      </div>
-    </a>
-
-    <a class="cert-card fade-in" href="https://ude.my/UC-5c478274-d084-414c-a475-f09a80b4c693" target="_blank" style="transition-delay:0.3s">
-      <div class="cert-accent-bar udemy"></div>
-      <div class="cert-issuer-row">
-        <span class="cert-issuer-badge udemy">365 Careers</span>
-        <span class="cert-platform">Udemy</span>
-      </div>
-      <div class="cert-name">The Complete Financial Analyst Course 2026</div>
-      <div class="cert-meta">
-        <span class="cert-date">Mar 2026 · 22.5 hrs</span>
-        <span class="cert-verify">Verify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <div class="section-label">06 — Achievements</div>
-  <h2 class="fade-in">Competitions & recognition</h2>
-  <div class="achievements-grid">
-    <div class="ach-card fade-in">
-      <div class="ach-place">2nd</div>
-      <div class="ach-title">_VOIS Vantage Case Study — Egypt Track 2022</div>
-      <div class="ach-body">Contributed to a strategic talent acquisition plan to strengthen _VOIS employer branding and attract top talent. Secured 2nd place.</div>
-      <div class="ach-tag">2nd Place</div>
-    </div>
-    <div class="ach-card fade-in" style="transition-delay:0.1s">
-      <div class="ach-place">2nd</div>
-      <div class="ach-title">P&G Online Sales Case Study Competition 2022</div>
-      <div class="ach-body">Led as Team Leader — conducted market analysis and built a sales & marketing strategy for a P&G product in the Egyptian market. Finished 2nd place.</div>
-      <div class="ach-tag">Team Leader · 2nd Place</div>
-    </div>
-    <div class="ach-card fade-in" style="transition-delay:0.2s">
-      <div class="ach-place">1st</div>
-      <div class="ach-title">STP Project Day — Digital Marketing</div>
-      <div class="ach-body">Led a comprehensive social media marketing campaign for a security company across multiple platforms, competing against several freelancing teams. Won the top prize.</div>
-      <div class="ach-tag">1st Place</div>
-    </div>
-  </div>
-</section>
-
-<!-- FIELD TRIPS & ACTIVITIES -->
-<section>
-  <div class="section-label">07 — Field Visits & Activities</div>
-  <h2 class="fade-in">Industry exposure</h2>
-  <div class="cards-2">
-    <div class="simple-card fade-in"><h3>Unilever Plant — Guided Visit</h3><p>Observed the saponification process, powder detergent production, and the high level of automation in an FMCG manufacturing facility.</p></div>
-    <div class="simple-card fade-in" style="transition-delay:0.1s"><h3>Egyptian Refining Company (ERC)</h3><p>Observed refining processes and advanced equipment. Gained insight into the production of cleaner fuels and the role of refinery operations in the energy sector.</p></div>
-    <div class="simple-card fade-in" style="transition-delay:0.15s"><h3>STP'23 — Public Relations Member</h3><p>Contributed to PR and venue selection for events such as Machathon 4.0 and Project Day. Developed event coordination and stakeholder communication skills.</p></div>
-    <div class="simple-card fade-in" style="transition-delay:0.2s"><h3>STP Digital Marketing Workshop</h3><p>Learned digital marketing principles and created a real social media campaign for a startup — bridging engineering problem-solving with communication strategy.</p></div>
-  </div>
-</section>
-
-<!-- LANGUAGES -->
-<section>
-  <div class="section-label">08 — Languages</div>
-  <h2 class="fade-in">Communication</h2>
-  <div class="lang-list">
-    <div class="lang-item fade-in"><div class="lang-name">Arabic</div><div class="lang-level">Mother tongue</div></div>
-    <div class="lang-item fade-in" style="transition-delay:0.1s"><div class="lang-name">English</div><div class="lang-level">Proficient — Read · Write · Speak</div></div>
-  </div>
-</section>
-
-<!-- FOOTER / CONTACT -->
-<footer id="contact">
-  <div class="footer-title">Let's build something<br><em>great</em> together.</div>
-  <ul class="contact-list">
-    <li><span class="contact-label">Email</span><a href="mailto:mo7amed0890@gmail.com">mo7amed0890@gmail.com</a></li>
-    <li><span class="contact-label">Phone</span><a href="tel:+201092016682">+20 109 201 6682</a></li>
-    <li><span class="contact-label">Location</span><span style="opacity:0.7">Giza, Egypt</span></li>
-    <li><span class="contact-label">LinkedIn</span><a href="https://www.linkedin.com/in/mo7amed-adel" target="_blank">Mohamed Adel ↗</a></li>
-  </ul>
-</footer>
+<section id="contact"><div class="wrap"><div class="card cta rv">
+<div class="eyebrow">Contact</div><h2>Let’s build something efficient</h2>
+<p>Looking for an engineer who combines process knowledge with data skills? I would be glad to talk.</p>
+<div class="btns">
+<button class="btn pri" id="copy" type="button">Copy email</button>
+<a class="btn sec" href="mailto:mo7amed0890@gmail.com">mo7amed0890@gmail.com</a>
+<a class="btn sec" href="https://www.linkedin.com/in/mohamed-adel-ibrahim" target="_blank" rel="noopener">LinkedIn</a>
+</div></div></div></section>
+<footer><div class="wrap">Mohamed Adel Ibrahim · Giza, Egypt</div></footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in, .tl-item').forEach(el => observer.observe(el));
+document.documentElement.classList.add('js');
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+/* molecule network */
+const cv=document.getElementById('net'),cx=cv.getContext('2d');let W,H,P=[],m={x:-999,y:-999};
+function rs(){const r=cv.parentElement.getBoundingClientRect();W=cv.width=r.width;H=cv.height=r.height;const n=Math.min(80,Math.floor(W*H/15000));P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.8+1}))}
+function dr(){cx.clearRect(0,0,W,H);
+for(const a of P){a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;const dx=a.x-m.x,dy=a.y-m.y,d=Math.hypot(dx,dy);if(d<110&&d>0){a.x+=dx/d*1.3;a.y+=dy/d*1.3}}
+for(let i=0;i<P.length;i++){const a=P[i];for(let j=i+1;j<P.length;j++){const b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<125){cx.strokeStyle='rgba(56,189,248,'+((1-d/125)*.35)+')';cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}
+const dm=Math.hypot(a.x-m.x,a.y-m.y);if(dm<150){cx.strokeStyle='rgba(125,211,252,'+((1-dm/150)*.6)+')';cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(m.x,m.y);cx.stroke()}
+cx.fillStyle='rgba(125,211,252,.85)';cx.beginPath();cx.arc(a.x,a.y,a.r,0,7);cx.fill()}
+if(!rm)requestAnimationFrame(dr)}
+addEventListener('resize',rs);rs();dr();
+document.getElementById('hero').addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top});
+document.getElementById('hero').addEventListener('pointerleave',()=>{m.x=m.y=-999});
+/* typed focus */
+const words=['Process Optimization','Data Analytics','Supply Chain','Lean Six Sigma','Heat Integration'],ty=document.getElementById('typed');let wi=0,ci=0,del=false;
+function tick(){const w=words[wi];ty.textContent=w.slice(0,ci);if(rm){ty.textContent=words.join(' · ');return}
+if(!del&&ci<w.length)ci++;else if(!del){del=true;return setTimeout(tick,1300)}else if(ci>0)ci--;else{del=false;wi=(wi+1)%words.length}
+setTimeout(tick,del?35:70)}tick();
+/* scroll: progress, reveal, counters */
+const bar=document.getElementById('bar');
+addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('[data-to]').forEach(el=>{const t=+el.dataset.to;let v=0;const s=()=>{v+=Math.max(1,t/40);if(v>=t){el.textContent=t;return}el.textContent=Math.floor(v);requestAnimationFrame(s)};rm?el.textContent=t:setTimeout(s,400)});
+/* card spotlight */
+document.querySelectorAll('.card').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')}));
+/* journey pipeline */
+const J=[
+{n:'01',t:'Cairo University',s:'2019 to 2024',h:'B.Sc. Chemical Engineering',m:'Giza, Egypt · 83%, Very Good with Honors',b:['Graduation project (Excellent): Sustainable Aviation Fuel production from used cooking oil.','Designed the absorber column and executed full-plant heat integration, applying pinch analysis to reduce thermal energy losses.']},
+{n:'02',t:'ENPPI',s:'07/2022 to 08/2022',h:'Engineering Intern',m:'Oil and gas engineering · Egypt',b:['Internship project on streamlining a process engineering workflow across three units using Aspen HYSYS.','Analyzed process data across a 2-week production cycle to identify optimization opportunities in a live manufacturing environment.']},
+{n:'03',t:'Lafarge',s:'08/2022 to 09/2022',h:'Manufacturing Intern',m:'Lafarge Cement Company (HOLCIM) · Egypt',b:['Studied raw material preparation and kiln operations in a cement plant.','Learned to apply quality control standards across the full manufacturing cycle.']},
+{n:'04',t:'ECHEM',s:'07/2023 to 08/2023',h:'Engineering Intern',m:'Egyptian Petrochemicals Holding Company · Egypt',b:['Studied operations and management strategies across two primary production functions.','Documented process workflows for several operational units.']},
+{n:'05',t:'Unilever',s:'01/2026 to 04/2026',h:'Supply Chain Analyst Professional Certificate',m:'Unilever · Egypt',b:['Applied training in supply chain operations, inventory optimization and demand forecasting.','Built SQL and Power BI dashboards tracking inventory turnover, order fill rate and days of supply, and traced a stockout pattern to forecast inaccuracy in one product category.']}];
+const rail=document.getElementById('rail'),pn=document.getElementById('pn');let user=false;
+J.forEach((j,i)=>{const b=document.createElement('button');b.className='node';b.type='button';b.setAttribute('role','tab');b.innerHTML='<i data-n="'+j.n+'"></i><span>'+j.t+'<small>'+j.s+'</small></span>';b.onclick=()=>{user=true;sel(i)};rail.appendChild(b)});
+function sel(i){const j=J[i];[...rail.children].forEach((n,k)=>{n.classList.toggle('on',k===i);n.setAttribute('aria-selected',k===i)});pn.innerHTML='<h3>'+j.h+'</h3><div class="meta">'+j.t+' · '+j.s+' · '+j.m+'</div><ul>'+j.b.map(x=>'<li>'+x+'</li>').join('')+'</ul>'}
+sel(0);
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting&&!rm){o.disconnect();let k=0;const t=setInterval(()=>{if(user||++k>=J.length){clearInterval(t);return}sel(k)},1400)}},{threshold:.5}).observe(rail);
+/* skills filter */
+const S={'Process Engineering':['Aspen HYSYS','Aspen Plus','Heat Integration (Pinch Analysis)','Process Simulation','PFD &amp; P&amp;ID Analysis','Mass &amp; Energy Balance','Equipment Sizing'],
+'Data &amp; Analytics':['Python','SQL','Microsoft Power BI','Statistical Data Analysis','Data Visualization','Excel (Advanced)'],
+'Operational Excellence':['Lean Six Sigma (Green Belt)','Continuous Improvement','Root Cause Analysis','Quality Control','OEE Tracking','Process Troubleshooting','ISO 9001:2015 Knowledge','5S'],
+'Core':['Leadership','Team Management','Presentation &amp; Communication','Problem Solving']};
+const chips=document.getElementById('chips'),tags=document.getElementById('tags');
+['All',...Object.keys(S)].forEach((c,i)=>{const b=document.createElement('button');b.className='chip'+(i?'':' on');b.type='button';b.innerHTML=c;b.onclick=()=>{[...chips.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');[...tags.children].forEach(t=>t.classList.toggle('dim',i>0&&t.dataset.c!==c))};chips.appendChild(b)});
+for(const c in S)S[c].forEach(s=>{const t=document.createElement('span');t.className='tag';t.dataset.c=c;t.innerHTML=s;tags.appendChild(t)});
+/* copy email */
+document.getElementById('copy').onclick=async function(){try{await navigator.clipboard.writeText('mo7amed0890@gmail.com');this.textContent='Copied ✓'}catch(e){this.textContent='mo7amed0890@gmail.com'}setTimeout(()=>this.textContent='Copy email',2200)};
 </script>
 </body>
 </html>
